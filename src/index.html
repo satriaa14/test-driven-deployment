@@ -1,0 +1,65 @@
+ {{define "form"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Input Message</title>
+</head>
+
+<body>
+    <form method="post" action="/hasil">
+        <label>Input Angka 1 :</label>
+        <input type="type" placeholder="Insert Number 1 here" name="num1" required />
+        <br />
+
+        <label>Input Angka 2 :</label>
+        <input type="type" placeholder="Insert Number 2 here" name="num2" required />
+        <br />
+
+
+        <input type="radio" name="tipe" value="addition"> Add<br>
+        <input type="radio" name="tipe" value="substraction"> Substract<br>
+        <input type="radio" name="tipe" value="multiplier"> Multiple<br>
+        <input type="radio" name="tipe" value="division"> Divisin<br>
+
+        <button type="submmit">Print</button>
+    </form>
+</body>
+
+</html>
+{{end}} {{define "result"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Show Message</title>
+</head>
+
+<body onload="myFunction({{.num1}}, {{.tipe}}, {{.num2}}, {{.result}})">
+    <h1>Hello</h1>
+    <p id="sip1"></p>
+    <!-- {{.num1}}, {{.tipe}}, {{.num2}}, {{.result}} -->
+</body>
+
+<script type="text/javascript">
+    function myFunction(a, b, c, d) {
+        document.getElementById("sip1").innerHTML = a + " " + tipe(b) + " " + c + " = " + d;
+    }
+
+    function tipe(b) {
+        if (b === "addition") {
+            return "+";
+        } else if (b === "substraction") {
+            return "-";
+        } else if (b === "multiplier") {
+            return "x";
+        } else if (b === "division") {
+            return "/";
+        } else {
+            return "Tidak dikenal";
+        }
+    }
+</script>
+
+</html>
+{{end}}
